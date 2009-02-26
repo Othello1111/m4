@@ -33,12 +33,13 @@ build_triplet = @build@
 host_triplet = @host@
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
-	$(srcdir)/Makefile.in $(top_srcdir)/checks/Makefile.in \
-	$(top_srcdir)/configure AUTHORS BACKLOG COPYING ChangeLog \
-	INSTALL NEWS THANKS TODO build-aux/config.guess \
-	build-aux/config.sub build-aux/depcomp build-aux/install-sh \
-	build-aux/mdate-sh build-aux/missing build-aux/texinfo.tex \
-	config.guess config.sub depcomp install-sh missing
+	$(srcdir)/Makefile.in $(srcdir)/component.xml.in \
+	$(top_srcdir)/checks/Makefile.in $(top_srcdir)/configure \
+	AUTHORS BACKLOG COPYING ChangeLog INSTALL NEWS THANKS TODO \
+	build-aux/config.guess build-aux/config.sub build-aux/depcomp \
+	build-aux/install-sh build-aux/mdate-sh build-aux/missing \
+	build-aux/texinfo.tex config.guess config.sub depcomp \
+	install-sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/alloca.m4 \
 	$(top_srcdir)/m4/assert.m4 $(top_srcdir)/m4/cloexec.m4 \
@@ -416,6 +417,7 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 SIG_ATOMIC_T_SUFFIX = @SIG_ATOMIC_T_SUFFIX@
 SIZE_T_SUFFIX = @SIZE_T_SUFFIX@
+STAR_MANIFEST_DIR = @STAR_MANIFEST_DIR@
 STDARG_H = @STDARG_H@
 STDBOOL_H = @STDBOOL_H@
 STDINT_H = @STDINT_H@
@@ -721,7 +723,6 @@ dist-gzip: distdir
 dist-bzip2: distdir
 	tardir=$(distdir) && $(am__tar) | bzip2 -9 -c >$(distdir).tar.bz2
 	$(am__remove_distdir)
-
 dist-lzma: distdir
 	tardir=$(distdir) && $(am__tar) | lzma -9 -c >$(distdir).tar.lzma
 	$(am__remove_distdir)
@@ -930,6 +931,26 @@ $(top_srcdir)/.version:
 # tarball, and never in a checked-out repository.
 dist-hook:
 	echo $(VERSION) > $(distdir)/.tarball-version
+
+install-manifest: install-manifest.xml
+	$(srcdir)/mkinstalldirs $(STAR_MANIFEST_DIR)
+	$(INSTALL_DATA) install-manifest.xml $(STAR_MANIFEST_DIR)/$(PRODUCT)
+
+install-manifest.xml: all
+	$(MAKE) install
+	rm -rf STAGING
+	mkdir STAGING
+	$(MAKE) prefix=`pwd`/STAGING install
+	rm -f $@
+	echo "<?xml version='1.0'?>"                            >$@
+	echo "<!DOCTYPE manifest SYSTEM 'componentinfo.dtd'>"   >>$@
+	echo "<manifest component='$(PRODUCT)'>"                >>$@
+	echo "<version>$(VERSION)</version>"                    >>$@
+	echo "<files>"                                          >>$@
+	find STAGING -type f | sed 's,^.*STAGING,$(prefix),'    >>$@
+	echo "</files>"                                         >>$@
+	echo "</manifest>"                                      >>$@
+	rm -rf STAGING
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
