@@ -742,6 +742,7 @@ LIBM4_LIBDEPS
 LIBM4_LTLIBDEPS
 STACKOVF_TRUE
 STACKOVF_FALSE
+STAR_MANIFEST_DIR
 LIBOBJS
 LTLIBOBJS
 M4_LIBOBJS
@@ -5915,11 +5916,11 @@ else
 _ACEOF
 
 
-  fi
+fi
 
-  if test -z "$GETOPT_H"; then
 
-for ac_func in getopt_long_only
+
+for ac_func in strerror_r
 do
 as_ac_var=`echo "ac_cv_func_$ac_func" | $as_tr_sh`
 { echo "$as_me:$LINENO: checking for $ac_func" >&5
@@ -6009,8 +6010,6 @@ if test `eval echo '${'$as_ac_var'}'` = yes; then
 #define `echo "HAVE_$ac_func" | $as_tr_cpp` 1
 _ACEOF
 
-else
-  GETOPT_H=getopt.h
 fi
 done
 
@@ -7278,6 +7277,10 @@ fi
 
 
 
+
+
+
+
 { echo "$as_me:$LINENO: checking for C/C++ restrict keyword" >&5
 echo $ECHO_N "checking for C/C++ restrict keyword... $ECHO_C" >&6; }
 if test "${ac_cv_c_restrict+set}" = set; then
@@ -7421,77 +7424,6 @@ _ACEOF
 
 
 
-
-{ echo "$as_me:$LINENO: checking whether stat file-mode macros are broken" >&5
-echo $ECHO_N "checking whether stat file-mode macros are broken... $ECHO_C" >&6; }
-if test "${ac_cv_header_stat_broken+set}" = set; then
-  echo $ECHO_N "(cached) $ECHO_C" >&6
-else
-  cat >conftest.$ac_ext <<_ACEOF
-/* confdefs.h.  */
-_ACEOF
-cat confdefs.h >>conftest.$ac_ext
-cat >>conftest.$ac_ext <<_ACEOF
-/* end confdefs.h.  */
-#include <sys/types.h>
-#include <sys/stat.h>
-
-#if defined S_ISBLK && defined S_IFDIR
-extern char c1[S_ISBLK (S_IFDIR) ? -1 : 1];
-#endif
-
-#if defined S_ISBLK && defined S_IFCHR
-extern char c2[S_ISBLK (S_IFCHR) ? -1 : 1];
-#endif
-
-#if defined S_ISLNK && defined S_IFREG
-extern char c3[S_ISLNK (S_IFREG) ? -1 : 1];
-#endif
-
-#if defined S_ISSOCK && defined S_IFREG
-extern char c4[S_ISSOCK (S_IFREG) ? -1 : 1];
-#endif
-
-_ACEOF
-rm -f conftest.$ac_objext
-if { (ac_try="$ac_compile"
-case "(($ac_try" in
-  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
-  *) ac_try_echo=$ac_try;;
-esac
-eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
-  (eval "$ac_compile") 2>conftest.er1
-  ac_status=$?
-  grep -v '^ *+' conftest.er1 >conftest.err
-  rm -f conftest.er1
-  cat conftest.err >&5
-  echo "$as_me:$LINENO: \$? = $ac_status" >&5
-  (exit $ac_status); } && {
-	 test -z "$ac_c_werror_flag" ||
-	 test ! -s conftest.err
-       } && test -s conftest$ac_exeext &&
-       $as_test_x conftest$ac_exeext; then
-  am_cv_langinfo_codeset=yes
-else
-  echo "$as_me: failed program was:" >&5
-sed 's/^/| /' conftest.$ac_ext >&5
-
-	ac_cv_header_stat_broken=yes
-fi
-
-rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
-      conftest$ac_exeext conftest.$ac_ext
-
-fi
-{ echo "$as_me:$LINENO: result: $ac_cv_header_stat_broken" >&5
-echo "${ECHO_T}$ac_cv_header_stat_broken" >&6; }
-if test $ac_cv_header_stat_broken = yes; then
-
-cat >>confdefs.h <<\_ACEOF
-#define STAT_MACROS_BROKEN 1
-_ACEOF
-
-fi
 
 { echo "$as_me:$LINENO: checking for stdbool.h that conforms to C99" >&5
 echo $ECHO_N "checking for stdbool.h that conforms to C99... $ECHO_C" >&6; }
@@ -9121,150 +9053,6 @@ _ACEOF
   fi
 
 
-  { echo "$as_me:$LINENO: checking for signed" >&5
-echo $ECHO_N "checking for signed... $ECHO_C" >&6; }
-if test "${bh_cv_c_signed+set}" = set; then
-  echo $ECHO_N "(cached) $ECHO_C" >&6
-else
-  cat >conftest.$ac_ext <<_ACEOF
-/* confdefs.h.  */
-_ACEOF
-cat confdefs.h >>conftest.$ac_ext
-cat >>conftest.$ac_ext <<_ACEOF
-/* end confdefs.h.  */
-
-int
-main ()
-{
-signed char x; return !x;
-  ;
-  return 0;
-}
-_ACEOF
-rm -f conftest.$ac_objext
-if { (ac_try="$ac_compile"
-case "(($ac_try" in
-  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
-  *) ac_try_echo=$ac_try;;
-esac
-eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
-  (eval "$ac_compile") 2>conftest.er1
-  ac_status=$?
-  grep -v '^ *+' conftest.er1 >conftest.err
-  rm -f conftest.er1
-  cat conftest.err >&5
-  echo "$as_me:$LINENO: \$? = $ac_status" >&5
-  (exit $ac_status); } && {
-	 test -z "$ac_c_werror_flag" ||
-	 test ! -s conftest.err
-       } && test -s conftest.$ac_objext; then
-  bh_cv_c_signed=yes
-else
-  echo "$as_me: failed program was:" >&5
-sed 's/^/| /' conftest.$ac_ext >&5
-
-	bh_cv_c_signed=no
-fi
-
-rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
-fi
-{ echo "$as_me:$LINENO: result: $bh_cv_c_signed" >&5
-echo "${ECHO_T}$bh_cv_c_signed" >&6; }
-  if test $bh_cv_c_signed = no; then
-
-cat >>confdefs.h <<\_ACEOF
-#define signed
-_ACEOF
-
-  fi
-
-
-
-  ac_cv_type_long_long=$ac_cv_type_long_long_int
-  if test $ac_cv_type_long_long = yes; then
-
-cat >>confdefs.h <<\_ACEOF
-#define HAVE_LONG_LONG 1
-_ACEOF
-
-  fi
-
-
-  { echo "$as_me:$LINENO: checking for long double" >&5
-echo $ECHO_N "checking for long double... $ECHO_C" >&6; }
-if test "${gt_cv_c_long_double+set}" = set; then
-  echo $ECHO_N "(cached) $ECHO_C" >&6
-else
-  if test "$GCC" = yes; then
-       gt_cv_c_long_double=yes
-     else
-       cat >conftest.$ac_ext <<_ACEOF
-/* confdefs.h.  */
-_ACEOF
-cat confdefs.h >>conftest.$ac_ext
-cat >>conftest.$ac_ext <<_ACEOF
-/* end confdefs.h.  */
-
-         /* The Stardent Vistra knows sizeof(long double), but does not support it.  */
-         long double foo = 0.0;
-         /* On Ultrix 4.3 cc, long double is 4 and double is 8.  */
-         int array [2*(sizeof(long double) >= sizeof(double)) - 1];
-
-int
-main ()
-{
-
-  ;
-  return 0;
-}
-_ACEOF
-rm -f conftest.$ac_objext
-if { (ac_try="$ac_compile"
-case "(($ac_try" in
-  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
-  *) ac_try_echo=$ac_try;;
-esac
-eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
-  (eval "$ac_compile") 2>conftest.er1
-  ac_status=$?
-  grep -v '^ *+' conftest.er1 >conftest.err
-  rm -f conftest.er1
-  cat conftest.err >&5
-  echo "$as_me:$LINENO: \$? = $ac_status" >&5
-  (exit $ac_status); } && {
-	 test -z "$ac_c_werror_flag" ||
-	 test ! -s conftest.err
-       } && test -s conftest.$ac_objext; then
-  gt_cv_c_long_double=yes
-else
-  echo "$as_me: failed program was:" >&5
-sed 's/^/| /' conftest.$ac_ext >&5
-
-	gt_cv_c_long_double=no
-fi
-rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext conftest.$ac_objext conftest.$ac_ext
-fi
-rm -f conftest.val
-
-      else
-                                ac_cv_decl_EOVERFLOW=E2BIG
-      fi
-    fi
-
-rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
-     fi
-fi
-{ echo "$as_me:$LINENO: result: $gt_cv_c_long_double" >&5
-echo "${ECHO_T}$gt_cv_c_long_double" >&6; }
-  if test $gt_cv_c_long_double = yes; then
-
-cat >>confdefs.h <<\_ACEOF
-#define HAVE_LONG_DOUBLE 1
-_ACEOF
-
-  fi
-
-
   { echo "$as_me:$LINENO: checking for wchar_t" >&5
 echo $ECHO_N "checking for wchar_t... $ECHO_C" >&6; }
 if test "${gt_cv_c_wchar_t+set}" = set; then
@@ -9595,6 +9383,7 @@ _ACEOF
 
 
 
+
    if false; then
   GL_COND_LIBTOOL_TRUE=
   GL_COND_LIBTOOL_FALSE='#'
@@ -9870,7 +9659,6 @@ if test `eval echo '${'$as_ac_var'}'` = yes; then
 _ACEOF
 
 fi
-
 done
 
 
@@ -15289,6 +15077,7 @@ done
 
 
 
+
   { echo "$as_me:$LINENO: checking whether wcwidth is declared" >&5
 echo $ECHO_N "checking whether wcwidth is declared... $ECHO_C" >&6; }
 if test "${ac_cv_have_decl_wcwidth+set}" = set; then
@@ -16858,13 +16647,14 @@ LIBM4_LIBDEPS!$LIBM4_LIBDEPS$ac_delim
 LIBM4_LTLIBDEPS!$LIBM4_LTLIBDEPS$ac_delim
 STACKOVF_TRUE!$STACKOVF_TRUE$ac_delim
 STACKOVF_FALSE!$STACKOVF_FALSE$ac_delim
+STAR_MANIFEST_DIR!$STAR_MANIFEST_DIR$ac_delim
 LIBOBJS!$LIBOBJS$ac_delim
 LTLIBOBJS!$LTLIBOBJS$ac_delim
 M4_LIBOBJS!$M4_LIBOBJS$ac_delim
 M4_LTLIBOBJS!$M4_LTLIBOBJS$ac_delim
 _ACEOF
 
-  if test `sed -n "s/.*$ac_delim\$/X/p" conf$$subs.sed | grep -c X` = 32; then
+  if test `sed -n "s/.*$ac_delim\$/X/p" conf$$subs.sed | grep -c X` = 33; then
     break
   elif $ac_last_try; then
     { { echo "$as_me:$LINENO: error: could not make $CONFIG_STATUS" >&5
@@ -17317,7 +17107,7 @@ echo "$as_me: executing $ac_file commands" >&6;}
   # each Makefile.in and add a new line on top of each file to say so.
   # Grep'ing the whole file is not good either: AIX grep has a line
   # limit of 2048, but all sed's we know have understand at least 4000.
-  if sed 10q "$mf" | grep '^#.*generated by automake' > /dev/null 2>&1; then
+  if sed -n 's,^#.*generated by automake.*,X,p' "$mf" | grep X >/dev/null 2>&1; then
     dirpart=`$as_dirname -- "$mf" ||
 $as_expr X"$mf" : 'X\(.*[^/]\)//*[^/][^/]*/*$' \| \
 	 X"$mf" : 'X\(//\)[^/]' \| \
