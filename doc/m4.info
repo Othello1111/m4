@@ -1,6 +1,6 @@
-This is m4.info, produced by makeinfo version 4.8 from m4.texinfo.
+This is m4.info, produced by makeinfo version 4.11 from m4.texinfo.
 
-   This manual is for GNU M4 (version 1.4.5, 15 July 2006), a package
+This manual is for GNU M4 (version 1.4.5, 26 February 2009), a package
 containing an implementation of the m4 macro language.
 
    Copyright (C) 1989, 1990, 1991, 1992, 1993, 1994, 2004, 2005, 2006
@@ -29,7 +29,7 @@ File: m4.info,  Node: Top,  Next: Preliminaries,  Up: (dir)
 GNU M4
 ******
 
-This manual is for GNU M4 (version 1.4.5, 15 July 2006), a package
+This manual is for GNU M4 (version 1.4.5, 26 February 2009), a package
 containing an implementation of the m4 macro language.
 
    Copyright (C) 1989, 1990, 1991, 1992, 1993, 1994, 2004, 2005, 2006
@@ -754,7 +754,7 @@ which will give the output
      Result is 32768
 
    The order in which `m4' expands the macros can be explored using the
-*Note Trace:: facilities of GNU `m4'.
+*note Trace:: facilities of GNU `m4'.
 
    This process continues until there are no more macro calls to expand
 and all the input has been consumed.
@@ -1064,7 +1064,7 @@ redefine `one':
 be a simple word.  It can be any text string, even the empty string.  A
 macro with a non-standard name cannot be invoked in the normal way, as
 the name is not recognised.  It can only be referenced by the builtins
-*Note Indir:: and *Note Defn::.
+*note Indir:: and *note Defn::.
 
    Arrays and associative arrays can be simulated by using this trick.
 
@@ -3991,8 +3991,8 @@ There are a few other incompatibilities between this implementation of
           =>
 
      There is nothing inherently wrong with defining `x' to return `x'.
-     The wrong thing is to expand `x' unquoted.  In `m4', one might
-     use macros to hold strings, as we do for variables in other
+     The wrong thing is to expand `x' unquoted.  In `m4', one might use
+     macros to hold strings, as we do for variables in other
      programming languages, further checking them with:
 
           ifelse(defn(`HOLDER'), `VALUE', ...)
@@ -4503,8 +4503,8 @@ B.1 Concept index
  [index ]
 * Menu:
 
-* arguments to macros:                   Macro Arguments.     (line   6)
 * Arguments to macros:                   Arguments.           (line   6)
+* arguments to macros:                   Macro Arguments.     (line   6)
 * arguments to macros, special:          Pseudo Arguments.    (line   6)
 * arguments, quoted macro:               Quoting Arguments.   (line   6)
 * arithmetic:                            Arithmetic.          (line   6)
@@ -4556,8 +4556,8 @@ B.1 Concept index
 * FDL, GNU Free Documentation License:   GNU Free Documentation License.
                                                               (line   6)
 * file format, frozen file:              Frozen file format.  (line   6)
-* file inclusion <1>:                    File Inclusion.      (line   6)
-* file inclusion:                        Undivert.            (line  77)
+* file inclusion <1>:                    Undivert.            (line  77)
+* file inclusion:                        File Inclusion.      (line   6)
 * file names, on the command line:       Invoking m4.         (line 201)
 * files, diverting output to:            Divert.              (line   6)
 * files, names of temporary:             Maketemp.            (line   6)
@@ -4565,19 +4565,19 @@ B.1 Concept index
 * formatted output:                      Format.              (line   6)
 * frozen file format:                    Frozen file format.  (line   6)
 * frozen files for fast loading:         Using frozen files.  (line   6)
-* GNU extensions <1>:                    Esyscmd.             (line   6)
-* GNU extensions <2>:                    Extensions.          (line   6)
-* GNU extensions <3>:                    Regexp.              (line   6)
-* GNU extensions <4>:                    Using frozen files.  (line   6)
-* GNU extensions <5>:                    Undivert.            (line  77)
-* GNU extensions <6>:                    Patsubst.            (line   6)
-* GNU extensions <7>:                    Search Path.         (line   6)
-* GNU extensions <8>:                    Arguments.           (line  30)
-* GNU extensions <9>:                    Format.              (line   6)
-* GNU extensions <10>:                   Indir.               (line   6)
-* GNU extensions <11>:                   Debug Output.        (line   6)
-* GNU extensions <12>:                   Builtin.             (line   6)
-* GNU extensions:                        Debug Levels.        (line  58)
+* GNU extensions <1>:                    Extensions.          (line   6)
+* GNU extensions <2>:                    Using frozen files.  (line   6)
+* GNU extensions <3>:                    Esyscmd.             (line   6)
+* GNU extensions <4>:                    Format.              (line   6)
+* GNU extensions <5>:                    Patsubst.            (line   6)
+* GNU extensions <6>:                    Regexp.              (line   6)
+* GNU extensions <7>:                    Undivert.            (line  77)
+* GNU extensions <8>:                    Search Path.         (line   6)
+* GNU extensions <9>:                    Debug Output.        (line   6)
+* GNU extensions <10>:                   Debug Levels.        (line  58)
+* GNU extensions <11>:                   Builtin.             (line   6)
+* GNU extensions <12>:                   Indir.               (line   6)
+* GNU extensions:                        Arguments.           (line  30)
 * included files, search path for:       Search Path.         (line   6)
 * inclusion, of files <1>:               Undivert.            (line  77)
 * inclusion, of files:                   File Inclusion.      (line   6)
@@ -4728,89 +4728,89 @@ the first time.
 
 
 Tag Table:
-Node: Top1097
-Node: Preliminaries8712
-Node: Intro9439
-Node: History11069
-Node: Invoking m413683
-Node: Bugs22463
-Node: Manual23731
-Node: Syntax26663
-Node: Names27421
-Node: Quoted strings27784
-Node: Other tokens28405
-Node: Comments28627
-Node: Input processing29471
-Node: Macros30632
-Node: Invocation31126
-Node: Inhibiting Invocation31927
-Node: Macro Arguments35300
-Node: Quoting Arguments36960
-Node: Macro expansion38192
-Node: Definitions38860
-Node: Define39644
-Node: Arguments41563
-Node: Pseudo Arguments43180
-Node: Undefine45710
-Node: Defn46840
-Node: Pushdef49147
-Node: Indir51481
-Node: Builtin52409
-Node: Conditionals54773
-Node: Ifdef55487
-Node: Ifelse56343
-Node: Loops59101
-Node: Debugging62908
-Node: Dumpdef63493
-Node: Trace64871
-Node: Debug Levels67466
-Node: Debug Output70232
-Node: Input Control71355
-Node: Dnl71893
-Node: Changequote73414
-Node: Changecom75263
-Node: Changeword76842
-Node: M4wrap81334
-Node: File Inclusion83085
-Node: Include83402
-Node: Search Path85562
-Node: Diversions86353
-Node: Divert87591
-Node: Undivert89058
-Node: Divnum91782
-Node: Cleardiv92241
-Node: Text handling93400
-Node: Len94123
-Node: Index macro94508
-Node: Regexp95112
-Node: Substr96945
-Node: Translit97728
-Node: Patsubst99246
-Node: Format102607
-Node: Arithmetic104650
-Node: Incr105099
-Node: Eval105876
-Node: Shell commands110286
-Node: Platform macros111196
-Node: Syscmd112904
-Node: Esyscmd113873
-Node: Sysval114798
-Node: Maketemp116277
-Node: Miscellaneous116993
-Node: Errprint117366
-Node: M4exit118452
-Node: Frozen files119745
-Node: Using frozen files120526
-Node: Frozen file format123521
-Node: Compatibility126595
-Node: Extensions127210
-Node: Incompatibilities130640
-Node: Other Incompatibilities136849
-Node: Answers138777
-Node: Copying This Manual139870
-Node: GNU Free Documentation License140098
-Node: Indices162504
-Node: Concept index162736
-Node: Macro index173818
+Node: Top1099
+Node: Preliminaries8718
+Node: Intro9445
+Node: History11075
+Node: Invoking m413689
+Node: Bugs22469
+Node: Manual23737
+Node: Syntax26669
+Node: Names27427
+Node: Quoted strings27790
+Node: Other tokens28411
+Node: Comments28633
+Node: Input processing29477
+Node: Macros30638
+Node: Invocation31132
+Node: Inhibiting Invocation31933
+Node: Macro Arguments35306
+Node: Quoting Arguments36966
+Node: Macro expansion38198
+Node: Definitions38866
+Node: Define39650
+Node: Arguments41569
+Node: Pseudo Arguments43186
+Node: Undefine45716
+Node: Defn46846
+Node: Pushdef49153
+Node: Indir51487
+Node: Builtin52415
+Node: Conditionals54779
+Node: Ifdef55493
+Node: Ifelse56349
+Node: Loops59107
+Node: Debugging62914
+Node: Dumpdef63499
+Node: Trace64877
+Node: Debug Levels67472
+Node: Debug Output70238
+Node: Input Control71361
+Node: Dnl71899
+Node: Changequote73420
+Node: Changecom75269
+Node: Changeword76848
+Node: M4wrap81340
+Node: File Inclusion83091
+Node: Include83408
+Node: Search Path85568
+Node: Diversions86359
+Node: Divert87597
+Node: Undivert89064
+Node: Divnum91788
+Node: Cleardiv92247
+Node: Text handling93406
+Node: Len94129
+Node: Index macro94514
+Node: Regexp95118
+Node: Substr96951
+Node: Translit97734
+Node: Patsubst99252
+Node: Format102613
+Node: Arithmetic104656
+Node: Incr105105
+Node: Eval105882
+Node: Shell commands110292
+Node: Platform macros111202
+Node: Syscmd112910
+Node: Esyscmd113879
+Node: Sysval114804
+Node: Maketemp116283
+Node: Miscellaneous116999
+Node: Errprint117372
+Node: M4exit118458
+Node: Frozen files119751
+Node: Using frozen files120532
+Node: Frozen file format123527
+Node: Compatibility126601
+Node: Extensions127216
+Node: Incompatibilities130646
+Node: Other Incompatibilities136855
+Node: Answers138783
+Node: Copying This Manual139876
+Node: GNU Free Documentation License140104
+Node: Indices162510
+Node: Concept index162742
+Node: Macro index173824
 
 End Tag Table
