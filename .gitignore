@@ -11,3 +11,12 @@ alloca.h
 .deps/
 stamp-h1
 lib/sys/
+lib/charset.alias
+lib/configmake.h
+lib/getopt.h
+lib/ref-add.sed
+lib/ref-del.sed
+lib/stdbool.h
+lib/stdint.h
+lib/stdlib.h
+lib/unistd.h
