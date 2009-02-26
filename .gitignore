@@ -7,3 +7,7 @@ autom4te.cache/
 config.*
 stamp-h
 src/m4
+alloca.h
+.deps/
+stamp-h1
+
