@@ -1,0 +1,437 @@
+
+m4.h,3548
+#  define __CYGWIN__ 31,1181
+#  define WIN32 34,1259
+# define voidstar 40,1330
+# define voidstar 42,1361
+# define _(_46,1412
+# define _(_48,1440
+#  define bcopy(bcopy65,1829
+#  define memcpy(memcpy70,1929
+#  define strchr(strchr73,2000
+#  define strrchr(strrchr76,2065
+# define EXIT_SUCCESS 97,2437
+# define EXIT_FAILURE 100,2489
+typedef enum { FALSE 116,2861
+typedef enum { FALSE = 0, TRUE 116,2861
+typedef enum { FALSE = 0, TRUE = 1 } boolean;boolean116,2861
+typedef int boolean;boolean118,2913
+struct stringstring125,2991
+typedef struct string STRING;STRING130,3111
+#define obstack_chunk_alloc	137,3311
+#define obstack_chunk_free	138,3347
+typedef void builtin_func builtin_func144,3488
+typedef struct token_data token_data;token_data145,3518
+#define M4ERROR(M4ERROR164,4075
+#define DEBUG_TRACE_ARGS 181,4476
+#define DEBUG_TRACE_EXPANSION 183,4543
+#define DEBUG_TRACE_QUOTE 185,4625
+#define DEBUG_TRACE_ALL 187,4706
+#define DEBUG_TRACE_LINE 189,4774
+#define DEBUG_TRACE_FILE 191,4841
+#define DEBUG_TRACE_PATH 193,4913
+#define DEBUG_TRACE_CALL 195,4989
+#define DEBUG_TRACE_INPUT 197,5056
+#define DEBUG_TRACE_CALLID 199,5123
+#define DEBUG_TRACE_VERBOSE 202,5198
+#define DEBUG_TRACE_DEFAULT 204,5265
+#define DEBUG_PRINT1(DEBUG_PRINT1206,5296
+#define DEBUG_PRINT3(DEBUG_PRINT3214,5452
+#define DEBUG_MESSAGE(DEBUG_MESSAGE222,5631
+#define DEBUG_MESSAGE1(DEBUG_MESSAGE1234,5863
+#define DEBUG_MESSAGE2(DEBUG_MESSAGE2246,6107
+enum token_typetoken_type271,6804
+  TOKEN_EOF,273,6822
+  TOKEN_STRING,274,6855
+  TOKEN_WORD,275,6895
+  TOKEN_SIMPLE,276,6931
+  TOKEN_MACDEF	277,6974
+enum token_data_typetoken_data_type281,7105
+  TOKEN_VOID,283,7128
+  TOKEN_TEXT,284,7142
+  TOKEN_FUNC285,7156
+struct token_datatoken_data288,7173
+#define TOKEN_DATA_TYPE(TOKEN_DATA_TYPE311,7424
+#define TOKEN_DATA_TEXT(TOKEN_DATA_TEXT312,7466
+# define TOKEN_DATA_ORIG_TEXT(TOKEN_DATA_ORIG_TEXT314,7539
+#define TOKEN_DATA_FUNC(TOKEN_DATA_FUNC316,7608
+#define TOKEN_DATA_FUNC_TRACED(TOKEN_DATA_FUNC_TRACED317,7656
+typedef enum token_type token_type;token_type319,7714
+typedef enum token_data_type token_data_type;token_data_type320,7750
+#define DEF_LQUOTE 343,8384
+#define DEF_RQUOTE 344,8407
+#define DEF_BCOMM 345,8431
+#define DEF_ECOMM 346,8453
+enum symbol_lookupsymbol_lookup368,9073
+  SYMBOL_LOOKUP,370,9094
+  SYMBOL_INSERT,371,9111
+  SYMBOL_DELETE,372,9128
+  SYMBOL_PUSHDEF,373,9145
+  SYMBOL_POPDEF374,9163
+struct symbolsymbol378,9210
+#define SYMBOL_NEXT(SYMBOL_NEXT390,9372
+#define SYMBOL_TRACED(SYMBOL_TRACED391,9408
+#define SYMBOL_SHADOWED(SYMBOL_SHADOWED392,9447
+#define SYMBOL_MACRO_ARGS(SYMBOL_MACRO_ARGS393,9490
+#define SYMBOL_BLIND_NO_ARGS(SYMBOL_BLIND_NO_ARGS394,9537
+#define SYMBOL_NAME(SYMBOL_NAME395,9590
+#define SYMBOL_TYPE(SYMBOL_TYPE396,9626
+#define SYMBOL_TEXT(SYMBOL_TEXT397,9681
+#define SYMBOL_FUNC(SYMBOL_FUNC398,9736
+typedef enum symbol_lookup symbol_lookup;symbol_lookup400,9792
+typedef struct symbol symbol;symbol401,9834
+typedef void hack_symbol hack_symbol402,9864
+#define HASHMAX 404,9894
+struct builtinbuiltin419,10302
+struct predefinedpredefined428,10446
+typedef struct builtin builtin;builtin435,10539
+typedef struct predefined predefined;predefined436,10571
+typedef int eval_t;eval_t457,11325
+typedef unsigned int unsigned_eval_t;unsigned_eval_t458,11345
+# define DMALLOC_FUNC_CHECK474,11739
+# define DEBUG_INPUT481,11837
+# define DEBUG_MACRO482,11858
+# define DEBUG_SYM483,11879
+# define DEBUG_INCL484,11898
+
+m4.c,848
+static int interactive 35,1037
+int sync_output 38,1111
+int debug_level 41,1159
+int hash_table_size 44,1234
+int no_gnu_extensions 47,1302
+int prefix_all_builtins 50,1376
+int max_debug_argument_length 53,1463
+int suppress_warnings 56,1549
+int warning_status 59,1648
+int nesting_limit 62,1729
+const char *user_word_regexp 66,1833
+const char *frozen_file_to_read 70,1937
+const char *frozen_file_to_write 73,2033
+const char *program_name;76,2117
+static int show_help 79,2200
+static int show_version 82,2294
+struct macro_definitionmacro_definition84,2324
+typedef struct macro_definition macro_definition;macro_definition90,2437
+reference_error 100,2810
+stackovf_handler 115,3109
+xfree 130,3374
+usage 142,3591
+static const struct option long_options[222,6391
+#define OPTSTRING 254,7527
+#define OPTSTRING 256,7593
+main 260,7663
+
+builtin.c,1637
+#define ARG(ARG30,997
+#define DECLARE(DECLARE36,1210
+builtin_tab[88,2289
+predefined_tab[143,4567
+find_builtin_by_addr 156,4825
+find_builtin_by_name 171,5139
+define_builtin 188,5679
+define_user_macro 208,6384
+builtin_init 225,6806
+bad_argc 266,8082
+numeric_arg 293,8942
+static char const digits[313,9548
+ntoa 316,9638
+shipout_int 354,10404
+dump_args 368,10843
+define_macro 408,12284
+m4_define 447,13065
+m4_undefine 453,13187
+m4_pushdef 461,13359
+m4_popdef 467,13484
+m4_ifdef 479,13731
+m4_ifelse 500,14122
+struct dump_symbol_datadump_symbol_data551,15175
+dump_symbol 559,15337
+dumpdef_cmp 574,15863
+m4_dumpdef 586,16316
+m4_builtin 662,18330
+m4_indir 686,19116
+m4_defn 709,19829
+static int sysval;748,20857
+m4_syscmd 751,20889
+m4_esyscmd 761,21071
+m4_sysval 787,21559
+m4_eval 798,21990
+m4_incr 845,22870
+m4_decr 859,23103
+m4_divert 881,23752
+m4_divnum 899,24158
+m4_undivert 914,24713
+m4_dnl 954,25746
+m4_shift 968,26180
+m4_changequote 978,26542
+m4_changecom 993,27043
+m4_changeword 1013,27652
+include 1033,28383
+m4_include 1057,28863
+m4_sinclude 1067,29088
+m4_maketemp 1080,29535
+m4_errprint 1100,30024
+m4___file__ 1109,30252
+m4___line__ 1119,30545
+m4_m4exit 1136,31155
+m4_m4wrap 1155,31751
+set_trace 1176,32541
+m4_traceon 1182,32650
+m4_traceoff 1206,33305
+m4_debugmode 1232,34073
+m4_debugfile 1284,35202
+m4_len 1305,35820
+m4_index 1318,36240
+m4_substr 1349,37115
+expand_ranges 1382,38285
+m4_translit 1425,39381
+m4_format 1478,40420
+static int substitute_warned 1492,41098
+substitute 1495,41145
+m4_regexp 1548,42488
+m4_patsubst 1609,44306
+expand_user_macro 1697,46942
+
+debug.c,342
+FILE *debug 30,949
+static struct obstack trace;33,1005
+debug_init 44,1225
+debug_decode 56,1575
+debug_set_file 133,3055
+debug_flush_files 163,3757
+debug_set_output 178,4267
+debug_message_prefix 202,4783
+trace_format 225,5701
+trace_header 306,7072
+trace_flush 323,7583
+trace_prepre 339,7983
+trace_pre 352,8385
+trace_post 409,9657
+
+eval.c,1434
+typedef enum eval_tokeneval_token28,1091
+    ERROR,30,1119
+    PLUS,31,1130
+    PLUS, MINUS,31,1130
+    EXPONENT,32,1147
+    TIMES,33,1161
+    TIMES, DIVIDE,33,1161
+    TIMES, DIVIDE, MODULO,33,1161
+    EQ,34,1188
+    EQ, NOTEQ,34,1188
+    EQ, NOTEQ, GT,34,1188
+    EQ, NOTEQ, GT, GTEQ,34,1188
+    EQ, NOTEQ, GT, GTEQ, LS,34,1188
+    EQ, NOTEQ, GT, GTEQ, LS, LSEQ,34,1188
+    LSHIFT,35,1223
+    LSHIFT, RSHIFT,35,1223
+    LNOT,36,1243
+    LNOT, LAND,36,1243
+    LNOT, LAND, LOR,36,1243
+    NOT,37,1264
+    NOT, AND,37,1264
+    NOT, AND, OR,37,1264
+    NOT, AND, OR, XOR,37,1264
+    LEFTP,38,1287
+    LEFTP, RIGHTP,38,1287
+    NUMBER,39,1306
+    NUMBER, EOTEXT39,1306
+eval_token;eval_token41,1329
+typedef enum eval_erroreval_error45,1363
+    NO_ERROR,47,1391
+    MISSING_RIGHT,48,1405
+    SYNTAX_ERROR,49,1424
+    UNKNOWN_INPUT,50,1442
+    EXCESS_INPUT,51,1461
+    DIVIDE_ZERO,52,1479
+    MODULO_ZERO53,1496
+eval_error;eval_error55,1516
+static const char *eval_text;77,2437
+static const char *last_text;81,2590
+eval_init_lex 84,2633
+eval_undo 91,2723
+eval_lex 99,2828
+evaluate 258,5322
+logical_or_term 320,6618
+logical_and_term 347,7083
+or_term 374,7532
+xor_term 401,7971
+and_term 428,8412
+not_term 455,8853
+logical_not_term 477,9209
+cmp_term 499,9574
+shift_term 560,10481
+add_term 603,11171
+mult_term 634,11692
+exp_term 686,12531
+unary_term 718,13076
+simple_term 743,13493
+
+format.c,728
+#define MAXFIELD	26,932
+#define ECVTMAX	28,1042
+#define FCVTMAX	29,1108
+#define min(min42,1393
+static char const digits[44,1436
+static char const Digits[45,1485
+ulong_to_str 50,1589
+clr0 71,1988
+#define ARG_INT(ARG_INT84,2167
+#define ARG_UINT(ARG_UINT88,2275
+#define ARG_LONG(ARG_LONG92,2399
+#define ARG_ULONG(ARG_ULONG96,2508
+#define ARG_STR(ARG_STR100,2634
+#define ARG_DOUBLE(ARG_DOUBLE104,2736
+format 116,3191
+#define LENGTH(LENGTH156,4544
+#define HAS_SIGN	157,4587
+  enum {INT,534,12188
+  enum {INT, UINT,534,12188
+  enum {INT, UINT, LONG,534,12188
+  enum {INT, UINT, LONG, ULONG,534,12188
+  enum {INT, UINT, LONG, ULONG, DOUBLE,534,12188
+  enum {INT, UINT, LONG, ULONG, DOUBLE, STR}534,12188
+
+freeze.c,290
+reverse_symbol_list 28,1083
+produce_frozen_state 49,1483
+# define FROZEN_WRITE 57,1598
+# define FROZEN_WRITE 59,1631
+issue_expect_message 162,4392
+reload_frozen_state 178,4829
+#define GET_CHARACTER 188,4996
+#define GET_NUMBER(GET_NUMBER191,5049
+#define VALIDATE(VALIDATE203,5297
+
+input.c,1581
+enum input_typeinput_type57,2683
+  INPUT_FILE,59,2701
+  INPUT_STRING,60,2715
+  INPUT_MACRO61,2731
+typedef enum input_type input_type;input_type64,2749
+struct input_blockinput_block66,2786
+typedef struct input_block input_block;input_block97,3548
+const char *current_file;101,3623
+int current_line;104,3684
+static struct obstack token_stack;107,3749
+static struct obstack input_stack;110,3812
+static struct obstack wrapup_stack;113,3875
+static struct obstack *current_input;116,3936
+static char *token_bottom;119,4023
+static input_block *isp;122,4091
+static input_block *wsp;125,4156
+static input_block *next;128,4229
+static boolean start_of_input_line;131,4312
+#define CHAR_EOF	133,4349
+#define CHAR_MACRO	134,4400
+STRING rquote;137,4483
+STRING lquote;138,4498
+STRING bcomm;141,4536
+STRING ecomm;142,4550
+#define DEFAULT_WORD_REGEXP 146,4591
+static char *word_start;148,4645
+static struct re_pattern_buffer word_regexp;149,4670
+static int default_word_regexp;150,4715
+static struct re_registers regs;151,4747
+push_file 163,5206
+push_macro 200,6264
+push_string_init 226,6882
+push_string_finish 251,7786
+push_wrapup 281,8800
+pop_input 299,9452
+pop_wrapup 341,10650
+init_macro_token 359,11074
+peek_input 382,11805
+#define next_char(next_char431,13106
+next_char_1 437,13257
+skip_line 492,14356
+match_input 509,14909
+#define MATCH(MATCH543,15856
+input_init 555,16205
+set_quotes 599,17290
+set_comment 611,17579
+init_pattern_buffer 625,17885
+set_word_regexp 634,18030
+next_token 703,20155
+print_token 846,23465
+lex_debug 875,24043
+
+macro.c,205
+int expansion_level 28,1090
+static int macro_call_id 31,1174
+expand_input 38,1433
+expand_token 56,2028
+expand_argument 109,3663
+collect_arguments 192,5582
+call_macro 238,7105
+expand_macro 269,8166
+
+output.c,821
+#define INITIAL_BUFFER_SIZE 27,970
+#define MAXIMUM_TOTAL_SIZE 31,1087
+#define COPY_BUFFER_SIZE 34,1183
+struct diversiondiversion51,1690
+static struct diversion *diversion_table;60,1946
+static int diversions;63,2034
+static int total_buffer_size;66,2107
+int current_diversion;70,2258
+static struct diversion *output_diversion;73,2360
+static FILE *output_file;76,2473
+static char *output_cursor;77,2529
+static int output_unused;78,2596
+int output_current_line;81,2718
+output_init 88,2835
+mkstemp 113,3379
+tmpfile 126,3601
+make_room_for 152,4386
+#define OUTPUT_CHARACTER(OUTPUT_CHARACTER255,7577
+output_character_helper 264,7837
+output_text 283,8339
+shipout_text 317,9537
+make_diversion 411,12060
+insert_file 460,13443
+insert_diversion 490,14269
+undivert_all 542,15501
+freeze_diversions 555,15823
+
+path.c,316
+struct includesincludes25,928
+typedef struct includes includes;includes32,1053
+static includes *dir_list;34,1088
+static includes *dir_list_end;35,1151
+static int dir_max_length;36,1205
+include_init 40,1280
+include_env_init 48,1374
+add_include_directory 72,1716
+path_search 102,2299
+include_dump 147,3258
+
+stackovf.c,494
+#define DEBUG_STACKOVF77,3690
+# define SIGSTKSZ 91,3914
+# define STACKOVF_DETECT 104,4492
+typedef void (*handler_t)handler_t108,4567
+static const char *stackbot;110,4605
+static const char *stackend;111,4634
+static const char *arg0;112,4663
+static handler_t stackovf_handler;113,4688
+#define PARAM_STACKOVF 138,5949
+#define PARAM_NOSTACKOVF 139,5991
+process_sigsegv 142,6048
+sigsegv_handler 207,7519
+sigsegv_handler 220,7794
+sigsegv_handler 230,7987
+setup_stackovf_trap 254,8762
+
+symtab.c,183
+symbol **symtab;41,1896
+symtab_init 44,1919
+hash 60,2272
+free_symbol 82,2720
+lookup_symbol 105,3651
+hack_all_symbols 209,6386
+symtab_debug 224,6642
+symtab_print_list 259,7233
+
+../lib/TAGS,include
