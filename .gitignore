@@ -10,4 +10,4 @@ src/m4
 alloca.h
 .deps/
 stamp-h1
-
+lib/sys/
