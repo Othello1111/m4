@@ -30,8 +30,10 @@ if test -f "bootstrap_timeorder"; then
    done
 fi
 
-#  Now the m4 bootstrap begins.
-#  ============================
+exit
+
+#  Now the m4 bootstrap would begin.
+#  =================================
 
 #! /bin/sh
 

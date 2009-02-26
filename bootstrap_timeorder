@@ -1,13 +1,18 @@
 #  Establish the time order of some files directories.
 #  Don't want to regenerate these automatically.
-configure.in
+configure.ac
 aclocal.m4
-config.h.in
+config-h.in
 configure
+Makefile.am
 Makefile.in
+checks/Makefile.am
 checks/Makefile.in
+doc/Makefile.am
 doc/Makefile.in
 #examples/Makefile.in
+lib/Makefile.am
 lib/Makefile.in
+src/Makefile.am
 src/Makefile.in
 stamp-h.in
