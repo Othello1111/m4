@@ -89,8 +89,7 @@ LIBRARIES = $(noinst_LIBRARIES)
 AR = ar
 ARFLAGS = cru
 libm4_a_AR = $(AR) $(ARFLAGS)
-am__DEPENDENCIES_1 = @LIBOBJS@
-libm4_a_DEPENDENCIES = $(am__DEPENDENCIES_1) @ALLOCA@
+libm4_a_DEPENDENCIES = $(LIBOBJS) @ALLOCA@
 am_libm4_a_OBJECTS = strnlen1.$(OBJEXT) verror.$(OBJEXT) \
 	xalloc-die.$(OBJEXT) xvasprintf.$(OBJEXT) xasprintf.$(OBJEXT)
 libm4_a_OBJECTS = $(am_libm4_a_OBJECTS)
