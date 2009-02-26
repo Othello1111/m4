@@ -33,12 +33,13 @@ build_triplet = @build@
 host_triplet = @host@
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
-	$(srcdir)/Makefile.in $(top_srcdir)/checks/Makefile.in \
-	$(top_srcdir)/configure AUTHORS BACKLOG COPYING ChangeLog \
-	INSTALL NEWS THANKS TODO build-aux/compile \
-	build-aux/config.guess build-aux/config.rpath \
-	build-aux/config.sub build-aux/depcomp build-aux/install-sh \
-	build-aux/mdate-sh build-aux/missing build-aux/texinfo.tex
+	$(srcdir)/Makefile.in $(srcdir)/component.xml.in \
+	$(top_srcdir)/checks/Makefile.in $(top_srcdir)/configure \
+	AUTHORS BACKLOG COPYING ChangeLog INSTALL NEWS THANKS TODO \
+	build-aux/compile build-aux/config.guess \
+	build-aux/config.rpath build-aux/config.sub build-aux/depcomp \
+	build-aux/install-sh build-aux/mdate-sh build-aux/missing \
+	build-aux/texinfo.tex
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/alloca.m4 \
 	$(top_srcdir)/m4/assert.m4 $(top_srcdir)/m4/autobuild.m4 \
@@ -561,7 +562,6 @@ sharedstatedir = @sharedstatedir@
 srcdir = @srcdir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = . examples lib src doc checks tests

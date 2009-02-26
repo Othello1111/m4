@@ -1,4 +1,4 @@
-@set UPDATED 25 September 2008
-@set UPDATED-MONTH September 2008
-@set EDITION 1.4.12
-@set VERSION 1.4.12
+@set UPDATED 26 February 2009
+@set UPDATED-MONTH February 2009
+@set EDITION 1.4.12.47-7896-dirty
+@set VERSION 1.4.12.47-7896-dirty
