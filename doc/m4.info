@@ -1,6 +1,6 @@
 This is m4.info, produced by makeinfo version 4.11 from m4.texinfo.
 
-   This manual is for GNU M4 (version 1.4.10, 4 July 2007), a package
+This manual is for GNU M4 (version 1.4.10, 26 February 2009), a package
 containing an implementation of the m4 macro language.
 
    Copyright (C) 1989, 1990, 1991, 1992, 1993, 1994, 2004, 2005, 2006,
@@ -24,7 +24,7 @@ File: m4.info,  Node: Top,  Next: Preliminaries,  Up: (dir)
 GNU M4
 ******
 
-This manual is for GNU M4 (version 1.4.10, 4 July 2007), a package
+This manual is for GNU M4 (version 1.4.10, 26 February 2009), a package
 containing an implementation of the m4 macro language.
 
    Copyright (C) 1989, 1990, 1991, 1992, 1993, 1994, 2004, 2005, 2006,
@@ -7193,17 +7193,17 @@ C.2 Index for many concepts
 * arguments to macros <1>:               Arguments.           (line   6)
 * arguments to macros:                   Macro Arguments.     (line   6)
 * arguments to macros, special:          Pseudo Arguments.    (line   6)
-* arguments, more than nine <1>:         Arguments.           (line  54)
-* arguments, more than nine:             Shift.               (line 106)
+* arguments, more than nine <1>:         Shift.               (line 106)
+* arguments, more than nine:             Arguments.           (line  54)
 * arguments, quoted macro:               Quoting Arguments.   (line   6)
 * arithmetic:                            Arithmetic.          (line   6)
 * arrays:                                Define.              (line  52)
 * avoiding quadratic behavior:           Improved foreach.    (line  38)
 * basic regular expressions <1>:         Patsubst.            (line   6)
 * basic regular expressions:             Regexp.              (line   6)
-* blind macro <1>:                       Inhibiting Invocation.
+* blind macro <1>:                       Ifelse.              (line  52)
+* blind macro:                           Inhibiting Invocation.
                                                               (line  14)
-* blind macro:                           Ifelse.              (line  52)
 * bug reports:                           Bugs.                (line   6)
 * builtins, indirect call of:            Builtin.             (line   6)
 * builtins, special tokens:              Defn.                (line  79)
@@ -7241,12 +7241,12 @@ C.2 Index for many concepts
 * definitions, displaying macro:         Defn.                (line   6)
 * deleting macros:                       Undefine.            (line   6)
 * deleting whitespace in input:          Dnl.                 (line   6)
-* delimiters, changing <1>:              Changequote.         (line   6)
-* delimiters, changing:                  Changecom.           (line   6)
+* delimiters, changing <1>:              Changecom.           (line   6)
+* delimiters, changing:                  Changequote.         (line   6)
 * discarding diverted text:              Cleardivert.         (line   6)
-* discarding input <1>:                  Dnl.                 (line   6)
-* discarding input <2>:                  Ifelse.              (line   6)
-* discarding input:                      Divert.              (line  42)
+* discarding input <1>:                  Divert.              (line  42)
+* discarding input <2>:                  Dnl.                 (line   6)
+* discarding input:                      Ifelse.              (line   6)
 * displaying macro definitions:          Dumpdef.             (line   6)
 * diversion numbers:                     Divnum.              (line   6)
 * diverted text, discarding:             Cleardivert.         (line   6)
@@ -7271,8 +7271,8 @@ C.2 Index for many concepts
 * FDL, GNU Free Documentation License:   GNU Free Documentation License.
                                                               (line   6)
 * file format, frozen file:              Frozen file format.  (line   6)
-* file inclusion <1>:                    File Inclusion.      (line   6)
-* file inclusion:                        Undivert.            (line  13)
+* file inclusion <1>:                    Undivert.            (line  13)
+* file inclusion:                        File Inclusion.      (line   6)
 * file names, on the command line:       Command line files.  (line   6)
 * files, diverting output to:            Divert.              (line   6)
 * files, names of temporary:             Mkstemp.             (line   6)
@@ -7281,26 +7281,25 @@ C.2 Index for many concepts
 * formatted output:                      Format.              (line   6)
 * frozen file format:                    Frozen file format.  (line   6)
 * frozen files for fast loading:         Using frozen files.  (line   6)
-* GNU extensions <1>:                    Inhibiting Invocation.
+* GNU extensions <1>:                    Extensions.          (line   6)
+* GNU extensions <2>:                    Using frozen files.  (line   6)
+* GNU extensions <3>:                    Mkstemp.             (line  56)
+* GNU extensions <4>:                    Esyscmd.             (line   6)
+* GNU extensions <5>:                    Eval.                (line 125)
+* GNU extensions <6>:                    Format.              (line   6)
+* GNU extensions <7>:                    Patsubst.            (line   6)
+* GNU extensions <8>:                    Regexp.              (line   6)
+* GNU extensions <9>:                    Undivert.            (line  13)
+* GNU extensions <10>:                   Divert.              (line  54)
+* GNU extensions <11>:                   Search Path.         (line   6)
+* GNU extensions <12>:                   Debug Output.        (line   6)
+* GNU extensions <13>:                   Debug Levels.        (line  71)
+* GNU extensions <14>:                   Builtin.             (line   6)
+* GNU extensions <15>:                   Indir.               (line   6)
+* GNU extensions <16>:                   Arguments.           (line  54)
+* GNU extensions <17>:                   Define.              (line  41)
+* GNU extensions:                        Inhibiting Invocation.
                                                               (line  14)
-* GNU extensions <2>:                    Search Path.         (line   6)
-* GNU extensions <3>:                    Divert.              (line  54)
-* GNU extensions <4>:                    Undivert.            (line  13)
-* GNU extensions <5>:                    Esyscmd.             (line   6)
-* GNU extensions <6>:                    Regexp.              (line   6)
-* GNU extensions <7>:                    Builtin.             (line   6)
-* GNU extensions <8>:                    Using frozen files.  (line   6)
-* GNU extensions <9>:                    Debug Output.        (line   6)
-* GNU extensions <10>:                   Define.              (line  41)
-* GNU extensions <11>:                   Debug Levels.        (line  71)
-* GNU extensions <12>:                   Eval.                (line 125)
-* GNU extensions <13>:                   Patsubst.            (line   6)
-* GNU extensions <14>:                   Mkstemp.             (line  56)
-* GNU extensions <15>:                   Undivert.            (line  81)
-* GNU extensions <16>:                   Format.              (line   6)
-* GNU extensions <17>:                   Extensions.          (line   6)
-* GNU extensions <18>:                   Arguments.           (line  54)
-* GNU extensions:                        Indir.               (line   6)
 * GNU M4, history of:                    History.             (line   6)
 * history of m4:                         History.             (line   6)
 * included files, search path for:       Search Path.         (line   6)
@@ -7331,9 +7330,9 @@ C.2 Index for many concepts
 * limit, nesting:                        Limits control.      (line  27)
 * literal output:                        Pseudo Arguments.    (line 106)
 * local variables:                       Pushdef.             (line  79)
-* location, input <1>:                   Preprocessor features.
+* location, input <1>:                   Location.            (line   6)
+* location, input:                       Preprocessor features.
                                                               (line  28)
-* location, input:                       Location.            (line   6)
 * loops:                                 Shift.               (line  10)
 * loops, counting:                       Forloop.             (line   6)
 * loops, list iteration:                 Foreach.             (line   6)
@@ -7348,8 +7347,8 @@ C.2 Index for many concepts
 * macros, arguments to <1>:              Arguments.           (line   6)
 * macros, arguments to:                  Macro Arguments.     (line   6)
 * macros, debugging:                     Debugging.           (line   6)
-* macros, displaying definitions <1>:    Defn.                (line   6)
-* macros, displaying definitions:        Dumpdef.             (line   6)
+* macros, displaying definitions <1>:    Dumpdef.             (line   6)
+* macros, displaying definitions:        Defn.                (line   6)
 * macros, expansion of:                  Macro expansion.     (line   6)
 * macros, how to define new:             Definitions.         (line   6)
 * macros, how to delete:                 Undefine.            (line   6)
@@ -7360,8 +7359,8 @@ C.2 Index for many concepts
 * macros, special arguments to:          Pseudo Arguments.    (line   6)
 * macros, temporary redefinition of:     Pushdef.             (line   6)
 * messages, printing error:              Errprint.            (line   6)
-* more than nine arguments <1>:          Arguments.           (line  54)
-* more than nine arguments:              Shift.               (line 106)
+* more than nine arguments <1>:          Shift.               (line 106)
+* more than nine arguments:              Arguments.           (line  54)
 * multibranches:                         Ifelse.              (line  66)
 * names:                                 Names.               (line   6)
 * nesting limit:                         Limits control.      (line  27)
@@ -7395,10 +7394,10 @@ C.2 Index for many concepts
 * reloading a frozen file:               Using frozen files.  (line   6)
 * renaming macros:                       Defn.                (line   6)
 * reporting bugs:                        Bugs.                (line   6)
-* rescanning <1>:                        Pseudo Arguments.    (line 106)
-* rescanning <2>:                        Defn.                (line  59)
-* rescanning <3>:                        Other Incompatibilities.
+* rescanning <1>:                        Other Incompatibilities.
                                                               (line  52)
+* rescanning <2>:                        Defn.                (line  59)
+* rescanning <3>:                        Pseudo Arguments.    (line 106)
 * rescanning <4>:                        Inhibiting Invocation.
                                                               (line  87)
 * rescanning:                            Limits control.      (line  40)
@@ -7411,8 +7410,8 @@ C.2 Index for many concepts
 * shell commands, running:               Shell commands.      (line   6)
 * special arguments to macros:           Pseudo Arguments.    (line   6)
 * stack, macro definition:               Pushdef.             (line   6)
-* standard error, output to <1>:         Trace.               (line   6)
-* standard error, output to <2>:         Errprint.            (line   6)
+* standard error, output to <1>:         Errprint.            (line   6)
+* standard error, output to <2>:         Trace.               (line   6)
 * standard error, output to:             Dumpdef.             (line   6)
 * status of shell commands:              Sysval.              (line   6)
 * status, setting m4 exit:               M4exit.              (line   6)
@@ -7446,106 +7445,106 @@ C.2 Index for many concepts
 
 
 Tag Table:
-Node: Top851
-Node: Preliminaries9359
-Node: Intro10045
-Node: History11677
-Node: Bugs14401
-Node: Manual15652
-Node: Invoking m419050
-Node: Operation modes21198
-Node: Preprocessor features24170
-Node: Limits control27267
-Node: Frozen state30203
-Node: Debugging options31002
-Node: Command line files32741
-Node: Syntax34314
-Node: Names35433
-Node: Quoted strings35895
-Node: Comments36544
-Node: Other tokens37421
-Node: Input processing37999
-Ref: Input processing-Footnote-145672
-Node: Macros45867
-Node: Invocation46361
-Node: Inhibiting Invocation47162
-Node: Macro Arguments51242
-Node: Quoting Arguments54304
-Node: Macro expansion56427
-Node: Definitions57128
-Node: Define57913
-Node: Arguments60351
-Node: Pseudo Arguments64023
-Node: Undefine67565
-Node: Defn68695
-Node: Pushdef71428
-Node: Indir74054
-Node: Builtin76182
-Node: Conditionals78203
-Node: Ifdef79022
-Node: Ifelse79885
-Node: Shift83098
-Node: Forloop87598
-Node: Foreach90234
-Node: Debugging95325
-Node: Dumpdef95910
-Node: Trace97320
-Node: Debug Levels100540
-Node: Debug Output104010
-Node: Input Control105291
-Node: Dnl105828
-Node: Changequote107729
-Node: Changecom112525
-Node: Changeword116041
-Node: M4wrap121482
-Node: File Inclusion123743
-Node: Include124060
-Node: Search Path126740
-Node: Diversions127657
-Node: Divert129448
-Node: Undivert131974
-Node: Divnum135138
-Node: Cleardivert135602
-Node: Text handling136807
-Node: Len137530
-Node: Index macro137915
-Node: Regexp138686
-Node: Substr141106
-Node: Translit142157
-Node: Patsubst144879
-Node: Format148420
-Node: Arithmetic151574
-Node: Incr152023
-Node: Eval152798
-Node: Shell commands160761
-Node: Platform macros161683
-Node: Syscmd163427
-Node: Esyscmd165246
-Node: Sysval166294
-Node: Mkstemp167912
-Node: Miscellaneous171329
-Node: Errprint171762
-Node: Location172981
-Node: M4exit175710
-Node: Frozen files177797
-Node: Using frozen files178578
-Node: Frozen file format181842
-Node: Compatibility184906
-Node: Extensions185521
-Node: Incompatibilities189343
-Node: Other Incompatibilities197551
-Node: Answers200197
-Node: Improved exch200815
-Node: Improved forloop201353
-Node: Improved foreach203212
-Node: Improved cleardivert210241
-Node: Improved fatal_error211224
-Node: Copying This Package212286
-Node: Copying212757
-Node: Copying This Manual250280
-Node: GNU Free Documentation License250800
-Node: Indices273194
-Node: Macro index273474
-Node: Concept index278908
+Node: Top854
+Node: Preliminaries9367
+Node: Intro10053
+Node: History11685
+Node: Bugs14409
+Node: Manual15660
+Node: Invoking m419058
+Node: Operation modes21206
+Node: Preprocessor features24178
+Node: Limits control27275
+Node: Frozen state30211
+Node: Debugging options31010
+Node: Command line files32749
+Node: Syntax34322
+Node: Names35441
+Node: Quoted strings35903
+Node: Comments36552
+Node: Other tokens37429
+Node: Input processing38007
+Ref: Input processing-Footnote-145680
+Node: Macros45875
+Node: Invocation46369
+Node: Inhibiting Invocation47170
+Node: Macro Arguments51250
+Node: Quoting Arguments54312
+Node: Macro expansion56435
+Node: Definitions57136
+Node: Define57921
+Node: Arguments60359
+Node: Pseudo Arguments64031
+Node: Undefine67573
+Node: Defn68703
+Node: Pushdef71436
+Node: Indir74062
+Node: Builtin76190
+Node: Conditionals78211
+Node: Ifdef79030
+Node: Ifelse79893
+Node: Shift83106
+Node: Forloop87606
+Node: Foreach90242
+Node: Debugging95333
+Node: Dumpdef95918
+Node: Trace97328
+Node: Debug Levels100548
+Node: Debug Output104018
+Node: Input Control105299
+Node: Dnl105836
+Node: Changequote107737
+Node: Changecom112533
+Node: Changeword116049
+Node: M4wrap121490
+Node: File Inclusion123751
+Node: Include124068
+Node: Search Path126748
+Node: Diversions127665
+Node: Divert129456
+Node: Undivert131982
+Node: Divnum135146
+Node: Cleardivert135610
+Node: Text handling136815
+Node: Len137538
+Node: Index macro137923
+Node: Regexp138694
+Node: Substr141114
+Node: Translit142165
+Node: Patsubst144887
+Node: Format148428
+Node: Arithmetic151582
+Node: Incr152031
+Node: Eval152806
+Node: Shell commands160769
+Node: Platform macros161691
+Node: Syscmd163435
+Node: Esyscmd165254
+Node: Sysval166302
+Node: Mkstemp167920
+Node: Miscellaneous171337
+Node: Errprint171770
+Node: Location172989
+Node: M4exit175718
+Node: Frozen files177805
+Node: Using frozen files178586
+Node: Frozen file format181850
+Node: Compatibility184914
+Node: Extensions185529
+Node: Incompatibilities189351
+Node: Other Incompatibilities197559
+Node: Answers200205
+Node: Improved exch200823
+Node: Improved forloop201361
+Node: Improved foreach203220
+Node: Improved cleardivert210249
+Node: Improved fatal_error211232
+Node: Copying This Package212294
+Node: Copying212765
+Node: Copying This Manual250288
+Node: GNU Free Documentation License250808
+Node: Indices273202
+Node: Macro index273482
+Node: Concept index278916
 
 End Tag Table
