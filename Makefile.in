@@ -164,8 +164,7 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 SIG_ATOMIC_T_SUFFIX = @SIG_ATOMIC_T_SUFFIX@
 SIZE_T_SUFFIX = @SIZE_T_SUFFIX@
-STACKOVF_FALSE = @STACKOVF_FALSE@
-STACKOVF_TRUE = @STACKOVF_TRUE@
+STAR_MANIFEST_DIR = @STAR_MANIFEST_DIR@
 STDBOOL_H = @STDBOOL_H@
 STDINT_H = @STDINT_H@
 STRIP = @STRIP@
@@ -174,6 +173,10 @@ UNISTD_H = @UNISTD_H@
 VERSION = @VERSION@
 WCHAR_T_SUFFIX = @WCHAR_T_SUFFIX@
 WINT_T_SUFFIX = @WINT_T_SUFFIX@
+abs_builddir = @abs_builddir@
+abs_srcdir = @abs_srcdir@
+abs_top_builddir = @abs_top_builddir@
+abs_top_srcdir = @abs_top_srcdir@
 ac_ct_CC = @ac_ct_CC@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
@@ -659,6 +662,41 @@ uninstall-am:
 .MAKE: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) install-am \
 	install-strip
 
+.PHONY: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) CTAGS GTAGS \
+	all all-am am--refresh check check-am clean clean-generic \
+	ctags ctags-recursive dist dist-all dist-bzip2 dist-gzip \
+	dist-lzma dist-shar dist-tarZ dist-zip distcheck distclean \
+	distclean-generic distclean-hdr distclean-tags distcleancheck \
+	distdir distuninstallcheck dvi dvi-am html html-am info \
+	info-am install install-am install-data install-data-am \
+	install-dvi install-dvi-am install-exec install-exec-am \
+	install-html install-html-am install-info install-info-am \
+	install-man install-pdf install-pdf-am install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs installdirs-am maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-generic pdf \
+	pdf-am ps ps-am tags tags-recursive uninstall uninstall-am
+
+
+install-manifest: install-manifest.xml
+	$(srcdir)/mkinstalldirs $(STAR_MANIFEST_DIR)
+	$(INSTALL_DATA) install-manifest.xml $(STAR_MANIFEST_DIR)/$(PRODUCT)
+
+install-manifest.xml: all
+	$(MAKE) install
+	rm -rf STAGING
+	mkdir STAGING
+	$(MAKE) prefix=`pwd`/STAGING install
+	rm -f $@
+	echo "<?xml version='1.0'?>"                            >$@
+	echo "<!DOCTYPE manifest SYSTEM 'componentinfo.dtd'>"   >>$@
+	echo "<manifest component='$(PRODUCT)'>"                >>$@
+	echo "<version>$(VERSION)</version>"                    >>$@
+	echo "<files>"                                          >>$@
+	find STAGING -type f | sed 's,^.*STAGING,$(prefix),'    >>$@
+	echo "</files>"                                         >>$@
+	echo "</manifest>"                                      >>$@
+	rm -rf STAGING
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
