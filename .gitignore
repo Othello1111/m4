@@ -1,0 +1,9 @@
+*.a
+*.o
+*~
+Makefile
+Makefile
+autom4te.cache/
+config.*
+stamp-h
+src/m4
