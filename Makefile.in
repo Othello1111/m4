@@ -88,8 +88,7 @@ DIST_COMMON = INSTALL NEWS README AUTHORS ChangeLog \
 	$(top_srcdir)/build-aux/config.rpath \
 	$(top_srcdir)/build-aux/config.sub \
 	$(top_srcdir)/build-aux/install-sh \
-	$(top_srcdir)/build-aux/missing \
-	$(srcdir)/component.xml.in
+	$(top_srcdir)/build-aux/missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/00gnulib.m4 \
 	$(top_srcdir)/m4/alloca.m4 $(top_srcdir)/m4/ansi-c++.m4 \
@@ -200,7 +199,7 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/lib/config.h
-CONFIG_CLEAN_FILES = component.xml
+CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -1371,8 +1370,6 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 SIG_ATOMIC_T_SUFFIX = @SIG_ATOMIC_T_SUFFIX@
 SIZE_T_SUFFIX = @SIZE_T_SUFFIX@
-STAR_MANIFEST_DIR = @STAR_MANIFEST_DIR@
-SPAWN_H = @SPAWN_H@
 STDARG_H = @STDARG_H@
 STDBOOL_H = @STDBOOL_H@
 STDDEF_H = @STDDEF_H@
@@ -1442,6 +1439,7 @@ sharedstatedir = @sharedstatedir@
 srcdir = @srcdir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
+top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = . examples lib src doc checks tests
@@ -1497,8 +1495,6 @@ $(top_srcdir)/configure:  $(am__configure_deps)
 $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	$(am__cd) $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
 $(am__aclocal_m4_deps):
-component.xml: $(top_builddir)/config.status $(srcdir)/component.xml.in
-	cd $(top_builddir) && $(SHELL) ./config.status $@
 
 # This directory's subdirectories are mostly independent; you can cd
 # into them and run 'make' without going through this Makefile.
@@ -1929,25 +1925,6 @@ $(top_srcdir)/.version:
 dist-hook:
 	echo $(VERSION) > $(distdir)/.tarball-version
 
-install-manifest: install-manifest.xml
-	$(srcdir)/mkinstalldirs $(STAR_MANIFEST_DIR)
-	$(INSTALL_DATA) install-manifest.xml $(STAR_MANIFEST_DIR)/$(PRODUCT)
-
-install-manifest.xml: all
-	$(MAKE) install
-	rm -rf STAGING
-	mkdir STAGING
-	$(MAKE) prefix=`pwd`/STAGING install
-	rm -f $@
-	echo "<?xml version='1.0'?>"                            >$@
-	echo "<!DOCTYPE manifest SYSTEM 'componentinfo.dtd'>"   >>$@
-	echo "<manifest component='$(PRODUCT)'>"                >>$@
-	echo "<version>$(VERSION)</version>"                    >>$@
-	echo "<files>"                                          >>$@
-	find STAGING -type f | sed 's,^.*STAGING,$(prefix),'    >>$@
-	echo "</files>"                                         >>$@
-	echo "</manifest>"                                      >>$@
-	rm -rf STAGING
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:

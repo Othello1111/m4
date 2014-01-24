@@ -45,27 +45,3 @@ $(top_srcdir)/.version:
 # tarball, and never in a checked-out repository.
 dist-hook:
 	echo $(VERSION) > $(distdir)/.tarball-version
-
-##  Starlink extension to maintain a manifest of files that are installed.
-
-STAR_MANIFEST_DIR = @STAR_MANIFEST_DIR@
-
-install-manifest: install-manifest.xml
-	$(srcdir)/mkinstalldirs $(STAR_MANIFEST_DIR)
-	$(INSTALL_DATA) install-manifest.xml $(STAR_MANIFEST_DIR)/$(PRODUCT)
-
-install-manifest.xml: all
-	$(MAKE) install
-	rm -rf STAGING
-	mkdir STAGING
-	$(MAKE) prefix=`pwd`/STAGING install
-	rm -f $@
-	echo "<?xml version='1.0'?>"                            >$@
-	echo "<!DOCTYPE manifest SYSTEM 'componentinfo.dtd'>"   >>$@
-	echo "<manifest component='$(PRODUCT)'>"                >>$@
-	echo "<version>$(VERSION)</version>"                    >>$@
-	echo "<files>"                                          >>$@
-	find STAGING -type f | sed 's,^.*STAGING,$(prefix),'    >>$@
-	echo "</files>"                                         >>$@
-	echo "</manifest>"                                      >>$@
-	rm -rf STAGING

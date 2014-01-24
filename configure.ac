@@ -220,14 +220,6 @@ M4_WITH_DMALLOC
 
 AC_CONFIG_COMMANDS([stamp-h], [[test -z "$CONFIG_HEADERS" || date > stamp-h]])
 
-# Set the STAR_MANIFEST_DIR variable, defaulting it from the environment.
-# If we were using Starlink automake, this would cause the
-# `install-manifest' target to be included in Makefile.in; but instead
-# this simply propagates the variable into the Makefile
-: ${STAR_MANIFEST_DIR='$(prefix)/manifests'}
-AC_SUBST(STAR_MANIFEST_DIR)
-
-
 AC_CONFIG_FILES([Makefile
                  doc/Makefile
                  lib/Makefile
@@ -235,7 +227,6 @@ AC_CONFIG_FILES([Makefile
                  tests/Makefile
                  checks/Makefile
                  examples/Makefile
-                 component.xml
 ])
 
 AC_OUTPUT

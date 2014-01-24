@@ -2,7 +2,7 @@
 ##
 ## Copyright (C) 2006-2013 Free Software Foundation, Inc.
 ##
-## Copyright (C) 2006, 2007 Free Software Foundation, Inc.
+## This file is part of GNU M4.
 ##
 ## GNU M4 is free software: you can redistribute it and/or modify
 ## it under the terms of the GNU General Public License as published by

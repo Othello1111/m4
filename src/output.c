@@ -816,7 +816,6 @@ insert_file (FILE *file)
 {
   static char buffer[COPY_BUFFER_SIZE];
   size_t length;
-  int saved_errno;
 
   /* Optimize out inserting into a sink.  */
   if (!output_diversion)
